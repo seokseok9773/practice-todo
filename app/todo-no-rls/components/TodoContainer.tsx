@@ -2,19 +2,21 @@
 
 import React, { useEffect, useState } from 'react';
 import { useTodosController } from '@/app/hooks/useTodosController';
+import TodoList from '@/components/ui/TodoList';
 
 export default function TodoContainer() {
-  const {
-    loading,
-    todos,
-    onCreateEmptyTodos,
-    onDeleteTodos,
-    onSearchTodosByContent,
-    onSearchTodosById,
-    onUpdateTodos,
-  } = useTodosController();
+  const { loading, todos } = useTodosController();
 
   console.log('loading', loading);
   console.log('todos', todos);
-  return <div>안녕하세요</div>;
+  return (
+    <div>
+      <TodoList
+        sharedUserFullName="test user"
+        ownerUserId="123123"
+        loading={loading}
+        todoListData={todos}
+      />
+    </div>
+  );
 }

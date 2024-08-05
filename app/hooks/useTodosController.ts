@@ -6,7 +6,7 @@ import {
   getTodosBySearch,
   getTodosById,
 } from '@/apis/toods-no-rls';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Database } from '@/types/supabase';
 
 // 방법 1
@@ -23,7 +23,7 @@ import { Database } from '@/types/supabase';
 type ToDoDto = Database['public']['Tables']['todos_no_ris']['Row'];
 
 export const useTodosController = () => {
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
   // 방법 1 :
   // const [todos, setTodos] = useState<Todo[]>([]);
   // 방법 2 : 가져온 Database의 todo는 하나의 원소에 대한 타입이므로 List화 시키려면 []를 붙여주자
